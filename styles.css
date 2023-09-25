@@ -1,0 +1,769 @@
+body {
+    background-image: url('Images/BackgroundImg2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', sans-serif;
+    transition: all 0.5s ease;
+    
+}
+
+.header {
+    display: flex;
+    justify-content: flex-start; /* changed to flex-start */
+    color: black;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.header a {
+    color: #FFFDFA;
+    text-decoration: none;
+    padding: 0 30px; /* adjust this as needed */
+    font-size: 23px;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.header a::after {
+    content: '';
+    display: block;
+    margin: 0 auto; /* centers the line */
+    width: 0;
+    height: 2px;
+    background:#FFFDFA;
+    transition: width .3s;
+}
+
+.header a:hover::after {
+    width: 100%; /* controls the length of the line when hovered */
+    transition: width .4s;
+}
+
+.header a:hover {
+    color: #FFFDFA;
+}
+
+.main-content {
+    margin-top: 190px;
+    text-align: center;
+    color:#FFFDFA;
+    font-size: 90px;
+    font-family: 'Courier New',Courier, monospace;
+    text-size-adjust: auto;
+}
+
+.main-content h1 {
+    text-align: center;
+    margin: auto;
+    color: #FFFDFA;
+    font-size: 50px;
+}
+
+.brush-wrap {
+    position: relative;
+    display: inline-block;
+    padding: 6%;
+}
+  
+.brush-wrap.brush-wrap--indefinite:before {
+    clip-path: url(#clip-indefinite);
+}
+  
+.brush-wrap:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background:linear-gradient(to right, #ff00d4, #00ddff);
+    z-index: -1;
+    clip-path: url(#clip); /* applying clip animation */
+}
+
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 100px;
+    color:#FFFDFA;
+}
+
+.brush-wrap h1 {
+    font-size:50px;
+    margin: 0;
+    text-align: center;
+    font-family: 'Courier New', sans-serif;
+    transition: all 0.5s ease;
+}
+
+
+
+
+@media (max-width: 600px) {
+    .brush-wrap h1 {
+        font-size: 1.5rem;
+    }
+}
+
+.resume-button {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 1% 4%;
+    border: 2px solid #FFFDFA;
+    border-radius: 30px; /* Changed this to make the button more oval */
+    background: transparent; /* Added this to make the button initially transparent */
+    color: #FFFDFA;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 1%;
+}
+
+.resume-button:hover {
+    background: linear-gradient(to right, #ff00d4,#00ddff);
+    box-shadow: 0px 0px 10px 0px #FFFDFA;
+    transform: scale(1.03);
+}
+
+
+
+
+
+
+@media (min-width: 1200px) {
+    .main-content h1 {
+        font-size: 50px;
+    }
+}
+
+
+@media (min-width: 1100px) {
+    .main-content h1 {
+        /* removed white-space: nowrap; */
+    }
+}
+
+@media (max-width: 600px) {
+    .main-content h1 {
+        font-size: 50px; /* smaller font size for small screens */
+    }
+}
+
+
+@keyframes type {
+    from { border-right: 2px solid transparent; }
+    to { border-right: 2px solid #FFFDFA; }
+}
+
+
+#after-text {
+    transition: opacity 2s;
+    text-size-adjust:auto;
+    font-size:0.9em;
+    font-family:'Courier New',sans-serif;
+    transition: all 0.5s ease;
+}
+
+.nav-link {
+    margin: 3px;
+    display: inline-block;
+}
+
+.dropdown {
+    display: none;
+    top:10px;
+    right: 10px;
+}
+
+.dropbtn {
+    background: none;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+}
+
+.line {
+    width: 35px;
+    height: 5px;
+    background-color:#FFFDFA;
+    margin: 6px 0;
+}
+
+.short-line {
+    width: 20px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 30px;
+    background-color:none;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #FFFDFA;
+    padding: 5px 5px;
+    text-decoration: none;
+    display: block;
+}
+
+@media (max-width: 800px) {
+    .nav-link {
+        display: none;
+    }
+
+    .dropdown {
+        display: block;
+    }
+}
+
+.show {
+    display: block !important;
+}
+
+/* ... rest of your CSS ... */
+
+/* This will create the 'X' shape. */
+.dropbtn.x .line:nth-child(2) {
+    opacity: 0; /* Hide the middle line */
+}
+
+.dropbtn.x .line:nth-child(1) {
+    transform: translateY(11px) rotate(45deg); /* Move the top line to the center and rotate */
+}
+
+.dropbtn.x .line:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg); /* Move the bottom line to the center and rotate */
+}
+
+a img:hover {
+    transform: scale(1.06);
+    
+}
+
+.aboutContainer {
+    position: relative;
+    width: 100%;
+}
+
+.aboutSection {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: flex-start;
+    padding: 10px;
+    margin-top: -120px; /* Adjust this value to move down */
+    margin-left: 40px; /* Adjust this value to move right */
+    transition: background .4s ease-in;
+}
+
+#aboutImage {
+    width: 30%; /* adjust as necessary */
+    margin-right: 30px; /* adjust as necessary */
+}
+
+.aboutText {
+    max-width: 50%; /* adjust as necessary */
+    text-align: left;
+    font-size: 1.6vw;
+    color: #FFFDFA; /* make the text color white */
+    font-family: 'Courier New', Courier, monospace; /* change 'Arial' to whatever font you are using on the rest of your site */
+}
+
+.aboutText ul {
+    list-style-type: none; /* removes the default bullet points of ul */
+    padding: 0; /* removes the default padding of ul */
+}
+
+.aboutText li {
+    display: flex; /* aligns the items of li in a row */
+    align-items: flex-start; /* aligns the items at the start of the row */
+    margin-bottom: 25px; /* adds some space between each list item */
+}
+
+.emojiText {
+    margin-right: 10px; /* adds some space between the emoji and the text */
+}
+
+a {
+    color: lightcoral; /* a light red color */
+    text-decoration: none; /* removes underline */
+}
+
+.cmc-link {
+    color: rgb(152,26,49) ; /* a light red color */
+    text-decoration: none; /* removes underline */
+}
+
+.cmc-link:hover {
+    color: Black; /* a darker red color when hovered */
+    transform: scale(1.1); /* slightly enlarges the text */
+    transition: all 0.3s ease-in-out; /* adds a smooth transition */
+}
+
+@media (max-width: 1200px) {
+    .nav-link {
+        display: none;
+    }
+
+    .dropdown {
+        display: block;
+    }
+
+    .aboutSection {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px; /* Adjust to look good on small devices */
+        margin-left: 0;
+    }
+
+    #aboutImage {
+        width: 80%; /* adjust as necessary for small devices */
+    }
+
+    .aboutText {
+        max-width: 90%; /* adjust as necessary for small devices */
+        font-size: 4vw; /* adjust font size for small devices */
+    }
+}
+
+@media (max-width: 600px) {
+    .header a {
+        font-size: 18px; /* adjust font size for smaller devices */
+        padding: 0 15px; /* adjust padding for smaller devices */
+    }
+
+    .main-content {
+        margin-top: 100px;
+    }
+    .main-content h1 {
+        font-size: 28px; /* adjust font size for smaller devices */
+    }
+}
+
+
+
+/* For mobile devices */
+@media (max-width: 800px) {
+    #linkedin-link img, #resume-link img {
+        position: static;  /* Reset position */
+        width: 50px; /* Adjust size */
+        height: 50px;
+        margin-top: 20px; /* Provide some space */
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .aboutSection {
+        margin-top: 0; /* Adjust this to bring the image higher */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .responsive-img {
+        width: 50%; /* Adjust this to change the size of the image on small screens */
+        margin-bottom: 20px; /* Adjust this to add some space between the image and text */
+    }
+
+    .aboutText {
+        max-width: 70%; /* Adjust this to change the size of the text on small screens */
+    }
+}
+
+
+.image-container {
+    position: relative;
+}
+
+.linkedInImage {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    width: 70px;
+    height: 70px;
+}
+
+.resumeImage {
+    position: absolute;
+    top: 12.5px;
+    right: 75px;
+    width: 45px;
+    height: 45px;
+}
+
+
+.main-content1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    padding: 20px;
+}
+
+.projectSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: row;
+}
+
+.projectBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    width: 25%; /* set a percentage-based width */
+    padding: 20px;
+    color:#FFFDFA;
+    text-decoration: none;
+}
+
+.projectBox img {
+    width: 80%; /* Make the images use full width of their parent box */
+    height: auto;
+}
+
+@media (max-width: 900px) {
+    .main-content1 {
+        height: 110vh;
+        margin-top: 40%;
+    }
+    
+    .projectSection {
+        flex-direction: column;
+    }
+    .projectBox {
+        width: 100%; /* full width on small screens */
+        max-width: none;
+    }
+    .projectBox img {
+        width: 50%; /* smaller images on small screens */
+    }
+}
+/*
+.skillSection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.skillBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+
+.skillBox img {
+    width: 60%; 
+    height: auto;
+}
+
+.skillBox h3 {
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .skillSection {
+        grid-template-columns: 1fr; 
+    }
+}
+*/
+
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+    font-family: 'Courier', sans-serif;
+    transition: background .8s ease-in;
+    background-color:;
+    width: 100%;
+    height: 100%;
+  }
+
+input[type=radio] {
+  display: none;
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: transform .5s ease;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  max-height: 600px;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 30px;
+}
+
+.card-name {
+    position: absolute;
+    bottom: 16%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 1% 15%;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0; /* hidden by default */
+    transition: opacity .3s ease; /* animate opacity changes */
+}
+
+/* show card name when its card is selected */
+#item-1:checked ~ .cards #song-1 .card-name,
+#item-2:checked ~ .cards #song-2 .card-name,
+#item-3:checked ~ .cards #song-3 .card-name,
+#item-4:checked ~ .cards #song-4 .card-name,
+#item-5:checked ~ .cards #song-5 .card-name,
+#item-6:checked ~ .cards #song-6 .card-name,
+#item-7:checked ~ .cards #song-7 .card-name,
+#item-8:checked ~ .cards #song-8 .card-name,
+#item-9:checked ~ .cards #song-9 .card-name {
+    opacity: 1;
+}
+
+
+img {
+    max-width: 100%; /* this means images will scale down if they have to, but never scale up to be larger than their original size */
+    height: auto; /* this makes the height change automatically according to the current width */
+    border-radius: 10px;
+    object-fit: cover; /* this means the image should be scaled to cover the container */
+    filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.05));
+}
+  
+
+#item-1:checked ~ .cards #song-2,
+#item-2:checked ~ .cards #song-3,
+#item-3:checked ~ .cards #song-4,
+#item-4:checked ~ .cards #song-5,
+#item-5:checked ~ .cards #song-6,
+#item-6:checked ~ .cards #song-7,
+#item-7:checked ~ .cards #song-8,
+#item-8:checked ~ .cards #song-9,
+#item-9:checked ~ .cards #song-1 {
+  transform: translatex(-30%) scale(.8);
+  opacity: .4;
+  z-index: 0;
+}
+
+#item-1:checked ~ .cards #song-9,
+#item-2:checked ~ .cards #song-1,
+#item-3:checked ~ .cards #song-2,
+#item-4:checked ~ .cards #song-3,
+#item-5:checked ~ .cards #song-4,
+#item-6:checked ~ .cards #song-5,
+#item-7:checked ~ .cards #song-6,
+#item-8:checked ~ .cards #song-7,
+#item-9:checked ~ .cards #song-8 {
+  transform: translatex(30%) scale(.8);
+  opacity: .4;
+  z-index: 0;
+}
+
+#item-1:checked ~ .cards #song-1,
+#item-2:checked ~ .cards #song-2,
+#item-3:checked ~ .cards #song-3,
+#item-4:checked ~ .cards #song-4,
+#item-5:checked ~ .cards #song-5,
+#item-6:checked ~ .cards #song-6,
+#item-7:checked ~ .cards #song-7,
+#item-8:checked ~ .cards #song-8,
+#item-9:checked ~ .cards #song-9 {
+  transform: translatex(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+      max-width: 200px;
+      max-height: 300px;
+    }
+  }
+
+
+
+
+
+.photoGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; /* Adjust to change space between photos */
+    margin: 20px;
+}
+
+.photoItem {
+    overflow: hidden;
+    position: relative;
+}
+
+.photoImage {
+    width: 100%;
+    opacity: 0.9;
+    transition: transform .5s ease, filter .5s ease, opacity 0.7s ease-in;
+    filter: blur(4px) grayscale(60%);
+    
+}
+
+.photoImage:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+    opacity: 1;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+   .photoGrid{
+       display: grid;
+       grid-template-columns: repeat(1,1fr);
+       gap: 10px;
+       margin: 20px
+   }
+   .photoImage{
+       width: 100%;
+       opacity:1.0;
+   }
+}
+
+
+
+
+
+
+
+#loadingScreen {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .loader {
+    border: 16px solid #FFFDFA;
+    border-top: 16px solid gray;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+
+  .lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.lightbox.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lightbox img {
+    max-width: 70%;
+    max-height: 80%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    color: #000;
+    padding: 10px;
+    font-size: 2em;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#lightbox-left {
+    left: 10px;
+}
+
+#lightbox-right {
+    right: 10px;
+}
+
+
+
+
+
