@@ -10,8 +10,15 @@ window.onload = function() {
         this.nextElementSibling.classList.toggle('show');
         this.classList.toggle('x');
     });
-  
-    var typed = new Typed('#typedText', options);
+
+    const typedEl = document.getElementById('typedText');
+    if (typedEl) {
+        const options = {
+            strings: ['Hi, My Name is Jimmy.'],
+            typeSpeed: 50
+        };
+        new Typed('#typedText', options);
+    }
 }
 
 
