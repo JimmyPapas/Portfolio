@@ -4,7 +4,7 @@ let img2 = new Image();
 img2.src = "Images/BackgroundImgcopy.png";
 
 
-window.onload = function() {
+window.addEventListener('load', function() {
 
     document.querySelector('.dropbtn').addEventListener('click', function() {
         this.nextElementSibling.classList.toggle('show');
@@ -12,7 +12,7 @@ window.onload = function() {
     });
   
     var typed = new Typed('#typedText', options);
-}
+});
 
 
 let images = Array.from(document.querySelectorAll('.photoImage'));
